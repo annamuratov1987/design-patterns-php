@@ -1,128 +1,128 @@
 <?php
-interface VehicleFactory
+interface TransportFactory
 {
-    public function createVehicleBody(): VehicleBody;
+    public function createTransportBody(): TransportBody;
 
-    public function createVehicleTire(): VehicleTire;
+    public function createTransportWheel(): TransportWheel;
 
-    public function createVehicle(VehicleBody $body, VehicleTire $tire): VehicleInterface;
+    public function createTransport(TransportBody $body, TransportWheel $wheel): TransportInterface;
 }
 
-class CarFactory implements VehicleFactory
+class CarFactory implements TransportFactory
 {
-    public function createVehicleBody(): VehicleBody
+    public function createTransportBody(): TransportBody
     {
         return new CarBody();
     }
 
-    public function createVehicleTire(): VehicleTire
+    public function createTransportWheel(): TransportWheel
     {
-        return new CarTire();
+        return new CarWheel();
     }
 
-    public function createVehicle(VehicleBody $body, VehicleTire $tire): VehicleInterface
+    public function createTransport(TransportBody $body, TransportWheel $wheel): TransportInterface
     {
         $car = new Car();
         $car->setBody($body);
-        $car->setTire($tire);
+        $car->setWheel($wheel);
 
         return $car;
     }
 }
 
-class BicycleFactory implements VehicleFactory
+class BicycleFactory implements TransportFactory
 {
-    public function createVehicleBody(): VehicleBody
+    public function createTransportBody(): TransportBody
     {
         return new BicycleBody();
     }
 
-    public function createVehicleTire(): VehicleTire
+    public function createTransportWheel(): TransportWheel
     {
-        return new BicycleTire();
+        return new BicycleWheel();
     }
 
-    public function createVehicle(VehicleBody $body, VehicleTire $tire): VehicleInterface
+    public function createTransport(TransportBody $body, TransportWheel $wheel): TransportInterface
     {
         $bicycle = new Bicycle();
         $bicycle->setBody($body);
-        $bicycle->setTire($tire);
+        $bicycle->setWheel($wheel);
 
         return $bicycle;
     }
 }
 
-interface VehicleInterface
+interface TransportInterface
 {
     public function getInfo(): string;
 }
 
-interface VehicleBody
+interface TransportBody
 {
     public function getType(): string;
 }
 
-interface VehicleTire
+interface TransportWheel
 {
     public function getWidth(): int;
 }
 
-abstract class Vehicle implements VehicleInterface
+abstract class Transport implements TransportInterface
 {
-    protected VehicleBody $body;
-    protected VehicleTire $tire;
+    protected TransportBody $body;
+    protected TransportWheel $wheel;
 
     /**
-     * @return VehicleBody
+     * @return TransportBody
      */
-    public function getBody(): VehicleBody
+    public function getBody(): TransportBody
     {
         return $this->body;
     }
 
     /**
-     * @param VehicleBody $body
+     * @param TransportBody $body
      */
-    public function setBody(VehicleBody $body): void
+    public function setBody(TransportBody $body): void
     {
         $this->body = $body;
     }
 
     /**
-     * @return VehicleTire
+     * @return TransportWheel
      */
-    public function getTire(): VehicleTire
+    public function getWheel(): TransportWheel
     {
-        return $this->tire;
+        return $this->wheel;
     }
 
     /**
-     * @param VehicleTire $tire
+     * @param TransportWheel $wheel
      */
-    public function setTire(VehicleTire $tire): void
+    public function setWheel(TransportWheel $wheel): void
     {
-        $this->tire = $tire;
+        $this->wheel = $wheel;
     }
 }
 
-class Car extends Vehicle
+class Car extends Transport
 {
     public function getInfo(): string
     {
-        return "Car info: " . "Body type - ". $this->getBody()->getType() . ", Tire width - " . $this->getTire()->getWidth() . "mm.";
+        return "Car info: " . "Body type - ". $this->getBody()->getType() . ", Wheel width - " . $this->getWheel()->getWidth() . "mm.";
     }
 }
 
-class Bicycle extends Vehicle
+class Bicycle extends Transport
 {
 
     public function getInfo(): string
     {
-        return "Bicycle info: " . "Frame type - ". $this->getBody()->getType() . ", Tire width - " . $this->getTire()->getWidth() . "mm.";
+        return "Bicycle info: " . "Frame type - ". $this->getBody()->getType() . ", Wheel width - " . $this->getWheel()->getWidth() . "mm.";
     }
 }
 
-class CarBody implements VehicleBody
+class CarBody implements TransportBody
 {
     public function getType(): string
     {
@@ -130,7 +130,7 @@ class CarBody implements VehicleBody
     }
 }
 
-class BicycleBody implements VehicleBody
+class BicycleBody implements TransportBody
 {
     public function getType(): string
     {
@@ -138,7 +138,7 @@ class BicycleBody implements VehicleBody
     }
 }
 
-class CarTire implements VehicleTire
+class CarWheel implements TransportWheel
 {
     public function getWidth(): int
     {
@@ -146,7 +146,7 @@ class CarTire implements VehicleTire
     }
 }
 
-class BicycleTire implements VehicleTire
+class BicycleWheel implements TransportWheel
 {
     public function getWidth(): int
     {
@@ -154,14 +154,14 @@ class BicycleTire implements VehicleTire
     }
 }
 
-function clientCode(VehicleFactory $vehicleFactory)
+function clientCode(TransportFactory $TransportFactory)
 {
-    $vehicleBody = $vehicleFactory->createVehicleBody();
-    $vehicleTire = $vehicleFactory->createVehicleTire();
+    $TransportBody = $TransportFactory->createTransportBody();
+    $TransportWheel = $TransportFactory->createTransportWheel();
 
-    $vehicle = $vehicleFactory->createVehicle($vehicleBody, $vehicleTire);
+    $Transport = $TransportFactory->createTransport($TransportBody, $TransportWheel);
 
-    echo $vehicle->getInfo();
+    echo $Transport->getInfo();
 }
 
 clientCode(new CarFactory());
