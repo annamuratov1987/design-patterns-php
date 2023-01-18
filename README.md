@@ -8,3 +8,5 @@
 [Фабричный метод](https://github.com/annamuratov1987/design-patterns-php/blob/main/creational/factory_method.php)
 
 [Абстрактная фабрика](https://github.com/annamuratov1987/design-patterns-php/blob/main/creational/abstract_factory.php)
+
+[Строитель](https://github.com/annamuratov1987/design-patterns-php/blob/main/creational/builder.php)
