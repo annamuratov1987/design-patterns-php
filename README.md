@@ -10,3 +10,5 @@
 [Абстрактная фабрика](https://github.com/annamuratov1987/design-patterns-php/blob/main/creational/abstract_factory.php)
 
 [Строитель](https://github.com/annamuratov1987/design-patterns-php/blob/main/creational/builder.php)
+
+[Прототип](https://github.com/annamuratov1987/design-patterns-php/blob/main/creational/prototype.php)
