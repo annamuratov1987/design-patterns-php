@@ -13,4 +13,6 @@
 
 [Прототип](https://github.com/annamuratov1987/design-patterns-php/blob/main/creational/prototype.php)
 
+### Структурные паттерны
+
 [Фасад](https://github.com/annamuratov1987/design-patterns-php/blob/main/structural/facade.php)
