@@ -12,3 +12,5 @@
 [Строитель](https://github.com/annamuratov1987/design-patterns-php/blob/main/creational/builder.php)
 
 [Прототип](https://github.com/annamuratov1987/design-patterns-php/blob/main/creational/prototype.php)
+
+[Фасад](https://github.com/annamuratov1987/design-patterns-php/blob/main/structural/facade.php)
