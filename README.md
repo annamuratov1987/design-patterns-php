@@ -19,4 +19,4 @@
 
 ### Поведенческие паттерны
 
-[Цепочка обязанностей](https://github.com/annamuratov1987/design-patterns-php/blob/main/structural/chain_of_responsibility.php)
+[Цепочка обязанностей](https://github.com/annamuratov1987/design-patterns-php/blob/main/behavioral/chain_of_responsibility.php)
