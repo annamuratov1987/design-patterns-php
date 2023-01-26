@@ -16,3 +16,7 @@
 ### Структурные паттерны
 
 [Фасад](https://github.com/annamuratov1987/design-patterns-php/blob/main/structural/facade.php)
+
+### Поведенческие паттерны
+
+[Цепочка обязанностей](https://github.com/annamuratov1987/design-patterns-php/blob/main/structural/chain_of_responsibility.php)
